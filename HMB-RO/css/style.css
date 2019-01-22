@@ -1,0 +1,293 @@
+html, body, aside {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+body {
+
+  padding: 0px;
+  background-attachment: fixed;
+  background-position: 50% 0;
+  background-size: cover; 
+}
+aside {
+  width: 233px;
+  min-height: 500px;
+}
+
+a {
+  text-decoration: underline;
+}
+a:hover {
+  text-decoration: none;
+}
+
+
+.header{
+  position: relative;
+  background-image: url('../images/logo1.jpg');
+
+  background-size: cover;
+  background-position: center;
+}
+.overlay{
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  left: 0;
+  top: 0;
+}
+.description{
+    position: absolute;
+
+}
+
+
+
+
+.sky-mega-menu,
+.sky-mega-menu * {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  background: none;
+}
+.sky-mega-menu {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+
+/**/
+/* level 1 */
+/**/
+.sky-mega-menu {
+  position: relative;
+  z-index: 999;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 0 20px rgba(0,0,0,.3);
+  font-size: 0;
+  line-height: 0;
+  text-align: right;
+}
+.sky-mega-menu:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.sky-mega-menu li {
+  position: relative;
+  display: inline-block;
+  float: left;
+  padding: 10px;
+  border-style: solid;
+  border-color: rgba(0,0,0,.1);
+  border-right-width: 1px;
+  font-size: 16px;
+  line-height: 45px;
+  text-align: left;
+  white-space: nowrap;
+}
+.sky-mega-menu li a {
+  display: block;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #666;
+  transition: background 0.4s, color 0.4s;
+  -o-transition: background 0.4s, color 0.4s;
+  -ms-transition: background 0.4s, color 0.4s;
+  -moz-transition: background 0.4s, color 0.4s;
+  -webkit-transition: background 0.4s, color 0.4s;
+}
+.sky-mega-menu li > div {
+  position: absolute;
+  z-index: 1000;
+  top: 100%;
+  left: -999px;
+  margin-top: 8px;
+  background: rgba(255,255,255,1);
+  box-shadow: 0 0 8px rgba(0,0,0,.3);
+  opacity: 0;
+  -o-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -webkit-transform-origin: 0% 0%;
+  -o-transition: -o-transform 0.4s, opacity 0.4s;
+  -ms-transition: -ms-transform 0.4s, opacity 0.4s;
+  -moz-transition: -moz-transform 0.4s, opacity 0.4s;
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+}
+/*удержание вкладок 2 и 3 ступени*/
+.sky-mega-menu li > div:after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: transparent;  
+}
+/*Настройка указателя*/
+.sky-mega-menu li > div:before {
+  content: ''; /*указатель (стрелочка)*/
+  position: absolute;
+  bottom: 100%;
+  left: 24px; /*расположение по горизонтали указателя*/
+  border-right: 5px solid transparent;/* размеры и форма указателя*/
+  border-bottom: 5px solid rgba(255,255,255,0.9);
+  border-left: 5px solid transparent;
+}
+/*Подсветка выпадающих вкладок при наведении*/
+.sky-mega-menu li:hover > a,
+.sky-mega-menu li.current > a {
+  background: #2da5da;
+  color: #fff;
+}
+/*Выпадание вкладок при наведении*/
+.sky-mega-menu li:hover > div { 
+  left: 0;
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+}
+
+/**/
+/* level 2+ */
+/* привязка последовательности вкладок*/
+.sky-mega-menu li li {
+  display: block;
+  float: none;
+  border-width: 0;
+  border-top-width: 1px;
+  line-height: 30px; /*Высота ячеек вкладок*/
+  white-space: normal;
+}
+.sky-mega-menu li li:first-child {
+  border-top: 0;
+}
+
+.sky-mega-menu li li > div:after {
+  top: 0;
+  right: 100%;
+  bottom: auto;
+  left: auto;
+  width: 8px;
+  height: 100%;
+}
+/*Общий размер вкладок 2 и 3 ступени со смещением шрифта*/
+.sky-mega-menu li li a {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+/*Позиционирование 3 ступени вкладки*/
+.sky-mega-menu li li > div {
+  top: 0;
+  margin: 0 0 0 8px;
+}
+
+/*Направление стрелочки вкладки*/
+.sky-mega-menu li li > div:before {
+  top: 22px;
+  right: 100%;
+  bottom: auto;
+  left: auto;
+  border-top: 5px solid transparent;
+  border-right: 5px solid rgba(255,255,255,0.9);
+  border-bottom: 5px solid transparent;
+}
+/* Отображение 3 ступени вкладки сбоку*/
+.sky-mega-menu li li:hover > div { 
+  left: 100%;
+}
+
+
+
+
+/**/
+/* animations - анимация появления ячеек меню */
+/**/
+
+.sky-mega-menu-anim-scale li > div {
+  -o-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -moz-transform: scale(0, 0);
+  -webkit-transform: scale(0, 0);
+}
+.sky-mega-menu-anim-scale li:hover > div {
+  -o-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+}
+
+
+
+/**/
+/* grid - ширина ячеек меню*/
+/**/
+
+.sky-mega-menu .grid-column {
+  float: left;
+  border-color: #d9d9d9;
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+.sky-mega-menu .grid-column:first-child {
+  margin-left: 0;
+  border-left: 0;
+}
+
+
+
+/**/
+/* grid */
+/**/
+.sky-mega-menu .grid-column2,
+.sky-mega-menu .grid-container2 {
+  width: 155px;
+}
+.sky-mega-menu .grid-column3,
+.sky-mega-menu .grid-container3 {
+  width: 233px;
+}
+.sky-mega-menu .grid-column4,
+.sky-mega-menu .grid-container4 {
+  width: 311px;
+}
+.sky-mega-menu .grid-column5,
+.sky-mega-menu .grid-container5 {
+  width: 389px;
+}
+.sky-mega-menu .grid-column6,
+.sky-mega-menu .grid-container6 {
+  width: 467px;
+}
+.sky-mega-menu .grid-column7,
+.sky-mega-menu .grid-container7 {
+  width: 545px;
+}
+.sky-mega-menu .grid-column8,
+.sky-mega-menu .grid-container8 {
+  width: 623px;
+}
+.sky-mega-menu .grid-column9,
+.sky-mega-menu .grid-container9 {
+  width: 701px;
+}
+.sky-mega-menu .grid-column10,
+.sky-mega-menu .grid-container10 {
+  width: 779px;
+}
+.sky-mega-menu .grid-column11,
+.sky-mega-menu .grid-container11 {
+  width: 857px;
+}
+.sky-mega-menu .grid-column12,
+.sky-mega-menu .grid-container12 {
+  width: 935px;
+}
+
+
+
+
+
+
